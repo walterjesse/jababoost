@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/jababoost/static/css/main.54a6a753.css",
-    "main.js": "/jababoost/static/js/main.a0c9a2a5.js",
+    "main.css": "/jababoost/static/css/main.b91751db.css",
+    "main.js": "/jababoost/static/js/main.d65d2448.js",
     "index.html": "/jababoost/index.html",
-    "main.54a6a753.css.map": "/jababoost/static/css/main.54a6a753.css.map",
-    "main.a0c9a2a5.js.map": "/jababoost/static/js/main.a0c9a2a5.js.map"
+    "main.b91751db.css.map": "/jababoost/static/css/main.b91751db.css.map",
+    "main.d65d2448.js.map": "/jababoost/static/js/main.d65d2448.js.map"
   },
   "entrypoints": [
-    "static/css/main.54a6a753.css",
-    "static/js/main.a0c9a2a5.js"
+    "static/css/main.b91751db.css",
+    "static/js/main.d65d2448.js"
   ]
 }

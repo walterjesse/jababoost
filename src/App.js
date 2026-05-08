@@ -70,18 +70,18 @@ const CartProvider = ({ children }) => {
 
   const clearCart = useCallback(() => setCart([]), []);
 
-  const cartTotal = cart.reduce((sum, item) => sum + (parseFloat(item.price.replace('$', '')) * item.quantity), 0);
+  const cartTotal = cart.reduce((sum, item) => sum + (parseFloat(item.price.replace('KSH ', '').replace(',', '')) * item.quantity), 0);
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   const checkout = useCallback(() => {
     if (cart.length === 0) return;
     
     const items = cart.map(item => 
-      `• ${item.name} - ${item.price} x ${item.quantity} = $${(parseFloat(item.price.replace('$', '')) * item.quantity).toFixed(2)}`
+      `• ${item.name} - ${item.price} x ${item.quantity} = KSH ${(parseFloat(item.price.replace('KSH ', '').replace(',', '')) * item.quantity).toFixed(0)}`
     ).join('\n');
     
-    const total = cartTotal.toFixed(2);
-    const message = `Hello Jaba Boost! 👋\n\nI'd like to order:\n${items}\n\n*Total: $${total}*\n\nPlease confirm availability and payment details.\n\nThank you!`;
+    const total = cartTotal.toFixed(0);
+    const message = `Hello Jaba Boost! 👋\n\nI'd like to order:\n${items}\n\n*Total: KSH ${total}*\n\nPlease confirm availability and payment details.\n\nThank you!`;
     
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/25421648001?text=${encodedMessage}`;
@@ -405,14 +405,14 @@ function App() {
 
   // Enhanced product catalog - Miraa infused with fruit flavors
   const products = [
-    { id: 1, img: 'images/1777179962734.png', name: 'Miraa Mango Fusion', desc: 'Premium miraa infused with sweet Kenyan mangoes. Smooth energy with tropical vibes.', price: '$6.99', category: 'tropical', badge: 'Bestseller', badgeColor: 'bg-orange-500/80', rating: 4.9 },
-    { id: 2, img: 'images/1777740719094.png', name: 'Khat Passion Blast', desc: 'Miraa blended with exotic passion fruit. Perfect balance of energy and tangy sweetness.', price: '$7.49', category: 'tropical', badge: 'New', badgeColor: 'bg-purple-500/80', rating: 4.8 },
-    { id: 3, img: 'images/1777741812263.png', name: 'Citrus Jaba Zing', desc: 'Miraa infused with zesty oranges and tangerines. A refreshing energy kick for your morning.', price: '$5.99', category: 'citrus', badge: null, badgeColor: '', rating: 4.7 },
-    { id: 4, img: 'images/1778168369746.png', name: 'Berry Miraa Mix', desc: 'Miraa with strawberry and raspberry fusion. Sweet energy boost with antioxidant berries.', price: '$8.99', category: 'berry', badge: null, badgeColor: '', rating: 4.9 },
-    { id: 5, img: 'images/1778168391740.png', name: 'Pineapple Miraa Gold', desc: 'Miraa meets premium Kenyan pineapples. Smooth, sweet energy without the bitter bite.', price: '$6.49', category: 'tropical', badge: 'Limited', badgeColor: 'bg-yellow-500/80', rating: 4.8 },
-    { id: 6, img: 'images/landing1.png', name: 'Watermelon Jaba Cooler', desc: 'Miraa infused with refreshing watermelon and lime. The ultimate summer energy drink.', price: '$5.49', category: 'tropical', badge: null, badgeColor: '', rating: 4.6 },
-    { id: 7, img: 'images/original.jpg', name: 'Tamarind Miraa Twist', desc: 'Classic miraa with authentic Kenyan tamarind. Sweet, sour, and naturally energizing.', price: '$6.99', category: 'traditional', badge: 'Popular', badgeColor: 'bg-green-500/80', rating: 4.7 },
-    { id: 8, img: 'images/poster.png', name: 'Guava Miraa Burst', desc: 'Miraa blended with aromatic guava. Vitamin C packed energy with a tropical twist.', price: '$6.49', category: 'tropical', badge: null, badgeColor: '', rating: 4.8 },
+    { id: 1, img: 'images/1777179962734.png', name: 'Miraa Mango Fusion', desc: 'Premium miraa infused with sweet Kenyan mangoes. Smooth energy with tropical vibes.', price: 'KSH 700', category: 'tropical', badge: 'Bestseller', badgeColor: 'bg-orange-500/80', rating: 4.9 },
+    { id: 2, img: 'images/1777740719094.png', name: 'Khat Passion Blast', desc: 'Miraa blended with exotic passion fruit. Perfect balance of energy and tangy sweetness.', price: 'KSH 750', category: 'tropical', badge: 'New', badgeColor: 'bg-purple-500/80', rating: 4.8 },
+    { id: 3, img: 'images/1777741812263.png', name: 'Citrus Jaba Zing', desc: 'Miraa infused with zesty oranges and tangerines. A refreshing energy kick for your morning.', price: 'KSH 600', category: 'citrus', badge: null, badgeColor: '', rating: 4.7 },
+    { id: 4, img: 'images/1778168369746.png', name: 'Berry Miraa Mix', desc: 'Miraa with strawberry and raspberry fusion. Sweet energy boost with antioxidant berries.', price: 'KSH 900', category: 'berry', badge: null, badgeColor: '', rating: 4.9 },
+    { id: 5, img: 'images/1778168391740.png', name: 'Pineapple Miraa Gold', desc: 'Miraa meets premium Kenyan pineapples. Smooth, sweet energy without the bitter bite.', price: 'KSH 650', category: 'tropical', badge: 'Limited', badgeColor: 'bg-yellow-500/80', rating: 4.8 },
+    { id: 6, img: 'images/landing1.png', name: 'Watermelon Jaba Cooler', desc: 'Miraa infused with refreshing watermelon and lime. The ultimate summer energy drink.', price: 'KSH 550', category: 'tropical', badge: null, badgeColor: '', rating: 4.6 },
+    { id: 7, img: 'images/original.jpg', name: 'Tamarind Miraa Twist', desc: 'Classic miraa with authentic Kenyan tamarind. Sweet, sour, and naturally energizing.', price: 'KSH 700', category: 'traditional', badge: 'Popular', badgeColor: 'bg-green-500/80', rating: 4.7 },
+    { id: 8, img: 'images/poster.png', name: 'Guava Miraa Burst', desc: 'Miraa blended with aromatic guava. Vitamin C packed energy with a tropical twist.', price: 'KSH 650', category: 'tropical', badge: null, badgeColor: '', rating: 4.8 },
   ];
 
   const categories = [
@@ -437,8 +437,8 @@ function App() {
     return matchesSearch && matchesCategory;
   }).sort((a, b) => {
     switch(sortBy) {
-      case 'price-low': return parseFloat(a.price.replace('$', '')) - parseFloat(b.price.replace('$', ''));
-      case 'price-high': return parseFloat(b.price.replace('$', '')) - parseFloat(a.price.replace('$', ''));
+      case 'price-low': return parseFloat(a.price.replace('KSH ', '').replace(',', '')) - parseFloat(b.price.replace('KSH ', '').replace(',', ''));
+      case 'price-high': return parseFloat(b.price.replace('KSH ', '').replace(',', '')) - parseFloat(a.price.replace('KSH ', '').replace(',', ''));
       case 'rating': return b.rating - a.rating;
       case 'name': return a.name.localeCompare(b.name);
       default: return 0;

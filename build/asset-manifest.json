@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/jababoost/static/css/main.54a6a753.css",
+    "main.js": "/jababoost/static/js/main.321ac5b9.js",
+    "index.html": "/jababoost/index.html",
+    "main.54a6a753.css.map": "/jababoost/static/css/main.54a6a753.css.map",
+    "main.321ac5b9.js.map": "/jababoost/static/js/main.321ac5b9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.54a6a753.css",
+    "static/js/main.321ac5b9.js"
+  ]
+}
